@@ -1,63 +1,112 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Animated Drawer Navigation in React Native
 
-# Getting Started
+This project implements a **custom animated drawer navigation** using `react-native-reanimated` and `react-native-gesture-handler`. The main screen smoothly scales, tilts, and shifts to reveal the drawer menu underneath.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features 🚀
 
-## Step 1: Start Metro
+- **Custom Animated Drawer**: The main screen rotates and scales when opening the drawer.
+- **Gesture Support**: Swipe to open and close the drawer.
+- **Smooth Transitions**: Uses `react-native-reanimated` for fluid animations.
+- **Minimal UI**: Simple and clean layout with a dark-themed drawer.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Demo 📸
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+![Demo GIF](assets/demo.gif)
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## Installation 🛠️
+
+1. **Clone the repository**
+
+   ```sh
+   git clone https://github.com/amitmundra08/GeraldApp.git
+   cd GeraldApp
+   ```
+
+2. **Install dependencies**
+
+   ```sh
+   yarn install
+   ```
+
+   or
+
+   ```sh
+   npm install
+   ```
+
+3. **Install required packages**
+
+   ```sh
+   yarn add react-native-reanimated react-native-gesture-handler
+   ```
+
+4. **Enable Reanimated worklet support** (for Expo, update `babel.config.js`):
+
+   ```js
+   module.exports = {
+     presets: ['module:metro-react-native-babel-preset'],
+     plugins: ['react-native-reanimated/plugin'],
+   };
+   ```
+
+5. **Run the app**
+   ```sh
+   npx react-native run-android  # For Android
+   npx react-native run-ios      # For iOS
+   ```
+
+---
+
+## Usage 💡
+
+### Opening the Drawer
+
+Tap the **☰ START** button or swipe right to open the drawer.
+
+### Closing the Drawer
+
+Tap any drawer item or swipe left to close it.
+
+---
+
+## Folder Structure 📂
+
+```
+📦 animated-drawer
+├── 📂 src             # Store screens/componentsimages/icons
+├── 📜 App.js          # Main application file
+├── 📜 README.md       # Documentation file
+├── 📜 package.json    # Dependencies and scripts
+└── 📜 babel.config.js # Reanimated plugin setup
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Technologies Used 🛠️
 
-### Android
+- **React Native**
+- **React Native Reanimated** (for animations)
+- **React Native Gesture Handler** (for swipe gestures)
 
-```sh
-# Using npm
-npm run android
+---
 
-# OR using Yarn
-yarn android
+## Troubleshooting ⚠️
+
+If you encounter issues with gestures, ensure you wrap the app with:
+
+```jsx
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+<GestureHandlerRootView style={{flex: 1}}>
+  <App />
+</GestureHandlerRootView>;
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+If animations aren't working correctly, restart Metro:
 
 ```sh
-bundle install
+yarn start --reset-cache
 ```
 
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
