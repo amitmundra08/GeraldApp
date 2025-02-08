@@ -23,7 +23,7 @@ import DrawerMenu from '../components/DrawerMenu';
 const drawerItems = [
   {name: 'Start'},
   {name: 'Your Cart'},
-  {name: 'Favourites'},
+  {name: 'Favourite'},
   {name: 'Your Orders'},
 ];
 
