@@ -92,16 +92,6 @@ Tap any drawer item or swipe left to close it.
 
 ---
 
-## Troubleshooting ⚠️
-
-If you encounter issues with gestures, ensure you wrap the app with:
-
-```jsx
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-<GestureHandlerRootView style={{flex: 1}}>
-  <App />
-</GestureHandlerRootView>;
-```
 
 If animations aren't working correctly, restart Metro:
 
